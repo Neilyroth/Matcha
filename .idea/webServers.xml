@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1d43b7ea-952d-45cf-aeca-0b733cdd0e09" name="DOserver42" url="http://188.166.159.156">
+        <fileTransfer host="188.166.159.156" port="22" accessType="SFTP" password="df84dfd0df9ddfdcdf81df9edf94dfd0" username="root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

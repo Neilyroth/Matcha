@@ -1,0 +1,22 @@
+
+mongo:
+    build: mongo
+    ports:
+        - "4202:27017"
+    volumes:
+            - "./mongo:/var/lib/mongo"
+
+web_server:
+    build: web_server
+    ports:
+        - "4201:4201"
+    volumes:
+            - "./web_server/app:/src/app"
+    links:
+            - mongo:mongo
+
+mail_dev:
+    image : djfarrelly/maildev
+    ports:
+        - "4242:80"
+        - "4203:25"
