@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="scotchApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Matcha</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.8.7/rzslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.8.7/rzslider.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <script src="script.js"></script>
+</head>
+<body ng-controller="mainController" class="ng-scope">
+    <div class="header">
+        <div class="logo">Matcha</div>
+        <div class="hotbar">
+            <a href="#/create"><div><img src="../images/edit.png">Create</div></a>
+            <a href="#/login"><div><img src="../images/fingerprint.png">Log in</div></a>
+            <a href="#/my_account"><div><img src="../images/user.png">My account</div></a>
+            <a href="#/search"><div><img src="../images/search.png">Search</div></a>
+            <div>
+                <a href="#/my_account"><img ng-src="../images/alarm{{notifSwitch}}.png"></a>
+                <a href="#/chat/{{chatPseudo}}"><img ng-src="../images/mail{{messageSwitch}}.png"></a>
+                <img id="deco" src="../images/exit.png" title="déconexion">
+            </div>
+        </div>
+    </div>
+    <div class="view" ng-view></div>
+    <div class="footer">Made with ❤ by nterrier@42 2016<br/>
+        Messages toolbar icons by <a href="http://itweek.deviantart.com/art/Knob-Buttons-Toolbar-icons-73463960" title="iTweek">iTweek</a><br/>
+        Header icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> and <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        <div class="hidden bonus">
+            SPA
+            Ajax
+            docker
+            MEAN
+            CRUD
+            'restful' api
+            sockets
+            templating
+        </div>
+    </div>
+</body>
+</html>

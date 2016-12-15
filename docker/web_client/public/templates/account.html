@@ -1,0 +1,80 @@
+<div class="hidden success">{{success}}</div>
+<div class="hidden validation">{{validation}}</div>
+<div class="hidden error">{{error}}</div>
+<div id="hiddenaside" class="profile">
+    <div class="myprofile">
+        <b>Mon compte</b><br/><br/>
+        <div class="bigcircle frame">
+            <img src={{account.images[0]?account.images[0]:'images/profile_account.png'}} class="bigcircle"/>
+            <input type="file" fileread="account.images[0]" class="biginput">
+        </div>
+        <div>
+            <b>{{account.pseudo}}</b><img src='images/{{account.gender}}.png' style="height:24px"/><br/>
+            <span style="text-transform:capitalize;">{{account.firstname}}</span>
+            <span style="text-transform: uppercase;">{{account.lastname}}</span><br/>
+            {{account.age}} ans<br/>
+            {{account.score}} points<br/><hr/>
+            {{account.mail}}<br/>
+            Je recherche <img src='images/{{account.orient}}.png' style="height:24px"/><br/>
+            "{{account.bio}}"<br/>
+            <div class="flex-container" style="justify-content:center">
+                <div ng-repeat="tag in account.tags.split(',') track by $index" ng-if="tag" class="tag">{{tag}}</div>
+            </div>
+            <div class="flex-container">
+                <div class="smallcircle frame">
+                    <img src={{account.images[1]?account.images[1]:'images/profile_account.png'}} class="smallcircle"/>
+                    <input type="file" fileread="account.images[1]" class="smallinput">
+                    <img src="../images/bin.png" id="delete1"/>
+                </div>
+                <div class="smallcircle frame">
+                    <img src={{account.images[2]?account.images[2]:'images/profile_account.png'}} class="smallcircle"/>
+                    <input type="file" fileread="account.images[2]" class="smallinput">
+                    <img src="../images/bin.png" id="delete2"/>
+                </div>
+                <div class="smallcircle frame">
+                    <img src={{account.images[3]?account.images[3]:'images/profile_account.png'}} class="smallcircle"/>
+                    <input type="file" fileread="account.images[3]" class="smallinput">
+                    <img src="../images/bin.png" id="delete3"/>
+                </div>
+                <div class="smallcircle frame">
+                    <img src={{account.images[4]?account.images[4]:'images/profile_account.png'}} class="smallcircle"/>
+                    <input type="file" fileread="account.images[4]" class="smallinput">
+                    <img src="../images/bin.png" id="delete4"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="myprofile">
+        <b>Notifications</b><br/><br/>
+        <div ng-if="!account.notifications.notifs[0]">
+            Vous n'avez pas ne nouvelles notifications.
+        </div>
+        <div ng-repeat="notif in account.notifications.notifs track by $index">
+            {{notif}}
+        </div>
+        <input id="deletenotifs" type="submit" value="Marquer comme lues"><br/>
+    </div>
+    <div class="myprofile" id="modify">
+        <b>Modifier mes inforations</b><br/><br/>
+        <div class="myprofile" style="position:absolute;bottom:100%" id="modify_content">
+            mail : <input ng-model="account.mail" type="text" placeholder="mail"><br/>
+            prenom : <input ng-model="account.firstname" type="text" placeholder="prenom"><br/>
+            nom : <input ng-model="account.lastname" type="text" placeholder="nom"><br/>
+            age : <input ng-model="account.age" type="number" placeholder="age" min="18" max="100"><br/>
+            sexe : <select ng-model="account.gender">
+            <option value="M">Homme</option>
+            <option value="F">Femme</option>
+        </select><br/>
+            cherche : <select ng-model="account.orient">
+            <option value="M">Homme</option>
+            <option value="F">Femme</option>
+            <option value="B">Les deux</option>
+        </select><br/>
+            tags : <input ng-model="account.tags" type="text" placeholder="tags (séparés par des virgules)"><br/>
+            biographie : <br/><textarea ng-model="account.bio" type="text" placeholder="Presentez vous en quelques lignes" maxlength="500" style="height:50px;width:400px"></textarea><br/>
+            <div id="map"></div>
+
+            <input id="envoyer" type="submit" value="Actualiser mes informations"><br/>
+        </div>
+    </div>
+</div>

@@ -1,23 +1,26 @@
-/**
- * Created by nterrier on 10/3/16.
- */
 var express = require('express');
+var io = require('socket.io');
 var app = express();
+var bodyParser = require('body-parser');
 var router = express.Router();
 
-var entry = function (app) {
-    app.get('/coucou', function(req,res){
-        res.send('Hello world');
-    })
+var http = require('http').Server(app);
 
-    app.get('/', function(req, res){
-        res.send('Hello Bear');
-    });
-};
+app.use(bodyParser.urlencoded({extended: true, limit: '300mb'}));
+app.use(bodyParser.json({limit: '300mb'}));
 
-var mongoose   = require('mongoose');
-mongoose.connect('mongodb://localhost/Matcha/docker/mongo');
+mongodb = {};
+var mongo = require('mongodb').MongoClient; // acces env variable: process.env.<nomDeLaVariable>
+mongo.connect('mongodb://MatchaUser:matcha42@188.166.159.156:4202/Matcha', function (error, db) {
+    if (error) funcCallback(error);
+    else mongodb = db;
+});
 
-entry(app);
+var listOfConnected = [];
+require ('./socket')(http, listOfConnected);
+http.listen(3042);
+
+require('./router.js')(router, app, io);
+app.use('/', router);
 
 app.listen(4201);

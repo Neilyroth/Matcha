@@ -1,0 +1,24 @@
+<div class="hidden validation">{{validation}}</div>
+<div class="hidden error">{{error}}</div>
+<div class="hidden success">{{success}}</div>
+<div class="basic">
+    <div class="flex-container" style="justify-content: center;">
+        <div ng-repeat="likes in likeslist" style="margin:5px">
+            <a href="#/chat/{{likes}}">{{likes}}</a>
+        </div>
+    </div>
+        <div class="flex-container" style="flex-direction:column">
+            <b>Discuter avec {{pseudo}}<br/><br/></b>
+            <div ng-repeat="text in messagelist">
+                <div ng-if="text.pseudo==pseudo" class="mymessage">
+                    {{text.pseudo}} : {{text.text}}
+                </div>
+                <div ng-if="text.pseudo!=pseudo" class="notmymessage">
+                    {{text.pseudo}} : {{text.text}}
+                </div>
+            </div>
+        </div>
+        message : <input ng-model="message" type="text" placeholder="message"><input id="chat" type="submit" value="Envoyer"><br/>
+    </div>
+
+</div>

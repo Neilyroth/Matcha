@@ -1,0 +1,39 @@
+<div class="hidden success">{{success}}</div>
+<div class="hidden validation">{{validation}}</div>
+<div class="hidden error">{{error}}</div>
+<div class="hidden profile">
+    <div class="myprofile">
+        <img id="like" src="../images/like{{account.liked}}.png">
+        <div class="bigcircle frame"><img src={{account.images[0]?account.images[0]:'images/profile.png'}} class="bigcircle"/></div>
+        <img id="heart2" src="../images/like{{account.likes}}.png">
+        <div>
+            <b>{{account.pseudo}}</b><img src='images/{{account.gender}}.png' style="height:24px"/><br/>
+            <span style="text-transform:capitalize;">{{account.firstname}}</span>
+            <span style="text-transform: uppercase;">{{account.lastname}}</span><br/>
+            {{account.age}} ans<br/>
+            {{account.score}} points<br/><hr/>
+            Je recherche <img src='images/{{account.orient}}.png' style="height:24px"/><br/>
+            Bio : {{account.bio}}<br/>
+            <div class="flex-container" style="justify-content:center">
+                <div ng-repeat="tag in account.tags.split(',') track by $index" ng-if="tag" class="tag">{{tag}}</div>
+            </div>
+            {{account.nbTags}} tags en commun<br/>
+            [{{account.loca.lat}}, {{account.loca.long}}], {{account.distance}} km de vous<br/>
+            {{account.lastConnect}}<br/>
+            <div>
+                <img src={{account.images[1]?account.images[1]:'images/profile.png'}} class="smallcircle"/>
+                <img src={{account.images[2]?account.images[2]:'images/profile.png'}} class="smallcircle"/>
+                <img src={{account.images[3]?account.images[3]:'images/profile.png'}} class="smallcircle"/>
+                <img src={{account.images[4]?account.images[4]:'images/profile.png'}} class="smallcircle"/>
+            </div>
+            <div style="float: right">
+                <input id="report" type="submit" value="Reporter ce compte">
+                <input id="block" type="submit" value="Bloquer ce compte">
+            </div>
+        </div>
+    </div>
+    <div ng-if="account.liked && account.likes" class="myprofile" style="margin-top: 20px">
+        <img src="../images/liketrue.png" height="40"><br/>
+        Vous êtes matchés ! Envoyez lui un message <b><a href="#/chat/{{account.pseudo}}">ici</a></b>.
+    </div>
+</div>

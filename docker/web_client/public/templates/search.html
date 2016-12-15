@@ -1,0 +1,44 @@
+<div class="hidden validation">{{validation}}</div>
+<div class="hidden error">{{error}}</div>
+<div class="hidden success">{{success}}</div>
+<div>
+    <div class="basic">
+        <div class="flex-container" style="justify-content: space-around;">
+            <div class="flex-item">Score : <rzslider rz-slider-model="minScore" rz-slider-high="maxScore" rz-slider-options="{floor: 1, ceil: 100}"></rzslider><br/></div>
+            <div class="flex-item">Age : <rzslider rz-slider-model="minAge" rz-slider-high="maxAge" rz-slider-options="{floor: 18, ceil: 100}"></rzslider><br/></div>
+            <div class="flex-item">Distance : <rzslider rz-slider-model="maxDist" rz-slider-options="{showSelectionBar: true, floor: 1, ceil: 999}"></rzslider><br/></div>
+        </div>
+        <div class="flex-container" style="justify-content:center">
+            <div ng-repeat="tag in tags.split(',') track by $index" ng-if="tag" class="tag">{{tag}}</div>
+        </div>
+
+        <input ng-model="tags" type="text" placeholder="tags (séparés par des virgules)" size="30">
+        <input id="envoyer" type="submit" value="Recherche"><br/>
+
+        <input id="sortScore" type="submit" value="Tri par score">
+        <input id="sortAge" type="submit" value="Tri par age">
+        <input id="sortTags" type="submit" value="Tri par tags">
+        <input id="sortDistance" type="submit" value="Tri par distance"><br/>
+    </div>
+</div>
+<div class="flex-container">
+    <div ng-repeat="account in accounts" style="min-width:250px;max-width:375px"  class="flex-item" >
+        <div>
+            <a href="#/user/{{account.pseudo}}">
+                <div class="myprofile" style="height:300px;margin:5px">
+                    <div class="smallcircle frame"><img ng-src={{account.images[0]?account.images[0]:'images/profile.png'}} class="smallcircle"/></div>
+                    <div>
+                        <b>{{account.pseudo}}</b><img ng-src='images/{{account.gender}}.png' style="height:24px"/><br/>
+                        <font style="text-transform:capitalize;">{{account.firstname}}</font>
+                        <font style="text-transform: uppercase;">{{account.lastname}}</font><br/>
+                        {{account.age}} ans<br/>
+                        {{account.score}} points<br/>
+                        à {{account.distance}} km de vous<br/>
+                        <b>{{account.nbTags}}</b> tags en commun<br/>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div ng-if="!accounts[0]" class="basic">Aucun resultat! Essayez une recherche plus large :D</div>

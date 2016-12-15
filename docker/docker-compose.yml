@@ -1,19 +1,26 @@
-
 mongo:
     build: mongo
     ports:
         - "4202:27017"
     volumes:
-            - "./mongo:/var/lib/mongo"
+            - "./mongo/data:/data/db"
 
 web_server:
     build: web_server
     ports:
         - "4201:4201"
+        - "3042:3042"
     volumes:
             - "./web_server/app:/src/app"
     links:
             - mongo:mongo
+
+web_client:
+    image: nginx
+    ports:
+        - "80:80"
+    volumes:
+            - "./web_client/public:/usr/share/nginx/html"
 
 mail_dev:
     image : djfarrelly/maildev

@@ -1,0 +1,232 @@
+/* basic style */
+body{
+    margin:0;
+    padding: 0;
+}
+div{
+    border: 0;
+    margin:0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    vertical-align: top;
+    color: black;
+}
+#hidden {
+    display: none;
+}
+#hiddenaside {
+    position:absolute;
+    bottom:100%
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+.flex-item{
+    flex-grow:1;
+    margin: 0 10px;
+}
+.tag{
+    border: 1px solid;
+    padding:5px 5px 5px 25px;
+    margin:2px 4px;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image:url('../images/tag.png');
+}
+
+/* header, mainpage and footer */
+.header {
+    width: 100%;
+    background-color: #989898;
+}
+.header .logo{
+    text-align: center;
+    height:50px;
+}
+.hotbar{
+    background-color: #777777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hotbar div{
+    display: flex;
+    align-items: center;
+    border:5px solid transparent;
+    width:115px;
+}
+.hotbar div:hover{
+    background-color: #989898;
+    border-top:5px double #888888;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.hotbar img {
+    height:30px;
+    width:30px;
+    margin:5px;
+}
+
+.view{
+    height: 100%;
+    width : 100%;
+}
+.basic{
+    margin:10px;
+    border-radius: 10px;
+    text-align :center;
+    background-color: lightblue;
+    border:10px solid transparent;
+}
+
+.footer{
+    font-family: monospace;
+    text-align: right;
+    background-color: #989898;
+    position: static;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+}
+
+
+/*basic informations divs*/
+.info, .success, .error, .validation {
+    border: 1px solid;
+    margin: 10px 10px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('info.png');
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../images/success.png');
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../images/error.png');
+}
+.validation {
+    color: #D63301;
+    background-color: #FFCCBA;
+    background-image: url('../images/validation.png');
+}
+.hidden {
+    display: none;
+}
+
+
+
+/* my_account images styles and inputs */
+.myprofile{
+    margin:10px;
+    border-radius: 10px;
+    text-align :center;
+    background-color: lightblue;
+    border:10px solid transparent;
+}
+
+.frame {
+    border:2px solid black;
+}
+.bigcircle{
+    border-radius: 100px;
+    background-color: #54a7e6;
+    width:200px;
+    height:200px;
+    margin: auto;
+}
+.smallcircle{
+    border-radius: 70px;
+    background-color: #54a7e6;
+    width:140px;
+    height:140px;
+    margin: auto;
+}
+
+input[type='file'] {
+    opacity: 0;
+    position :relative;
+}
+.biginput{
+    height:200px;
+    width:200px;
+    bottom:205px;
+}
+.smallinput{
+    height:140px;
+    width:140px;
+    bottom:145px;
+}
+#delete1, #delete2, #delete3, #delete4{
+    position: relative;
+    bottom: 170px;
+    left: 55px;
+}
+div#map{
+    width: 800px;
+    height: 400px;
+    margin: 10px auto;
+}
+
+
+#like{
+    position: relative;
+    top: 70px;
+    right: 80px;
+    height:60px;
+}
+#heart2{
+    position: relative;
+    bottom: 60px;
+    left: 75px;
+    height:50px;
+}
+
+.mymessage{
+    align-self: flex-start;
+    margin : 2px 100px 10px 0px;
+    padding: 5px;
+    text-align:left;
+    border-radius: 10px;
+    background-color: #54a7e6;
+}
+
+.notmymessage{
+    align-self: flex-end;
+    margin : 2px 0px 10px 100px;
+    padding: 5px 10px;
+    text-align: right;
+    border-radius: 10px;
+    background-color: #4481ea;
+}
+
+/* responsive ! */
+@media all and (max-width: 900px) {
+    .hotbar {
+        justify-content: space-around;
+    }
+}
+@media all and (max-width: 650px) {
+    .hotbar, .flex-container {
+        flex-direction: column;
+    }
+    .flex-item {
+        max-width: 650px !important;
+    }
+}
