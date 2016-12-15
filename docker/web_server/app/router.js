@@ -143,7 +143,6 @@ module.exports = function(router, app, io) {
             .then(Mongo.retrieveUser)
             .then(Mongo.matched)
             .then(Mongo.message)
-            .then(Socket.message)
             .then(
                 function(data) {console.log('message OK');data.res.send({state:'success', json:data.json});},
                 function(data) {console.log(data.error);data.res.send({state:data.state, json:data.error});}
