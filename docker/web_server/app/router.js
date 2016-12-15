@@ -1,19 +1,6 @@
 var Check = require('./model/checker.js');
 var Mongo = require('./model/mongo.js');
 var Mail = require('./model/mail.js');
-var Socket = require('./model/socket.js');
-
-//TODO maps : erreur produite par un programme tiers donc pas de mon ressort immediat :S [regarder code a robin peut etre]
-// .catch(function(err){console.log(err);})
-
-//TODO socket
-
-//TODO chat (demander a robin pour les sockets)
-//  à l'envoi de message :
-//      on stock {pseudo, message}
-//      on envoie un socket nouveau message : [+][pseudo]
-//      on ajoute une notification "message"
-//      on envoie un socket nouvelle notifications ?
 
 module.exports = function(router, app, io) {
     router.use(function (req, res, next) {
@@ -69,7 +56,6 @@ module.exports = function(router, app, io) {
             .then(Check.setImages)
             .then(Check.setLatLng)
             .then(Mongo.loggedin)
-            //.then(Mongo.findMail)
             .then(Mongo.updateProfile)
             .then(Mongo.findUserByToken)
             .then(Mongo.loadNotifications)

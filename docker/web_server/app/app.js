@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded({extended: true, limit: '300mb'}));
 app.use(bodyParser.json({limit: '300mb'}));
 
 mongodb = {};
-var mongo = require('mongodb').MongoClient; // acces env variable: process.env.<nomDeLaVariable>
+var mongo = require('mongodb').MongoClient;
 mongo.connect('mongodb://MatchaUser:matcha42@188.166.159.156:4202/Matcha', function (error, db) {
-    if (error) funcCallback(error);
+    if (error) {console.log('Cant find the mongo db, create it first');}
     else mongodb = db;
 });
 
